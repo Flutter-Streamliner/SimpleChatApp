@@ -6,7 +6,7 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder(
-          stream: Firestore.instance
+          stream: FirebaseFirestore.instance
               .collection('chats/x2lhzyP83qvb7ZGlcz8Z/messages')
               .snapshots(),
           builder: (context, snapshot) {
@@ -27,7 +27,7 @@ class ChatScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          Firestore.instance
+          FirebaseFirestore.instance
               .collection('chats/x2lhzyP83qvb7ZGlcz8Z/messages')
               .add({'text': 'This was added by clicking the button!'});
         },
