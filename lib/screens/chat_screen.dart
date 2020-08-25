@@ -49,13 +49,20 @@ class ChatScreen extends StatelessWidget {
               );
             }
             final documents = snapshot.data.documents;
-            return ListView.builder(
-              itemCount: documents.length,
-              itemBuilder: (ctx, index) => Container(
-                padding: EdgeInsets.all(8),
-                child: Text(documents[index]['text']),
-              ),
-            );
+            print('documents = ${documents[0].get('text')}');
+            if (snapshot.hasData)
+              return ListView.builder(
+                itemCount: documents.length,
+                itemBuilder: (ctx, index) => Container(
+                  padding: EdgeInsets.all(8),
+                  child: Text(documents[index].get('text')),
+                ),
+              );
+            else {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
           }),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
