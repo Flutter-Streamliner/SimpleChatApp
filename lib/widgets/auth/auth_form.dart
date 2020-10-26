@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class AuthForm extends StatefulWidget {
   final isLoading;
   final void Function(String email, String password, String username,
-      bool isLogin, BuildContext context) submitForm;
+      File image, bool isLogin, BuildContext context) submitForm;
   AuthForm(this.submitForm, this.isLoading);
 
   @override
@@ -41,7 +41,7 @@ class _AuthFormState extends State<AuthForm> {
 
       // Use those values to send our auth request...
       widget.submitForm(_userEmail.trim(), _userPassword.trim(),
-          _userName.trim(), _isLogin, context);
+          _userName.trim(), _userImageFile, _isLogin, context);
     }
   }
 
