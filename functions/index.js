@@ -1,5 +1,13 @@
 const functions = require('firebase-functions');
 
+exports.myFunction = functions.firestore
+  .document('chat/{message}')
+  .onCreate((snapshot, context) => { 
+      const value = snapshot.data();
+      console.log(value);
+      return;
+   });
+
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
