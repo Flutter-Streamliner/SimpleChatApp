@@ -12,6 +12,7 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
+    super.initState();
     final fbm = FirebaseMessaging();
     fbm.requestNotificationPermissions();
     fbm.configure(onMessage: (msg) {
@@ -26,7 +27,6 @@ class _ChatScreenState extends State<ChatScreen> {
     });
     fbm.subscribeToTopic('chat');
     // save deviceId userA and userB and when userA text to userB you send notification to userB
-    super.initState();
   }
 
   @override
@@ -36,6 +36,7 @@ class _ChatScreenState extends State<ChatScreen> {
         title: Text('FlutterChat'),
         actions: <Widget>[
           DropdownButton(
+            underline: Container(),
             icon: Icon(
               Icons.more_vert,
               color: Theme.of(context).primaryIconTheme.color,
