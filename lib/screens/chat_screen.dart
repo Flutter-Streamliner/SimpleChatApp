@@ -24,6 +24,8 @@ class _ChatScreenState extends State<ChatScreen> {
       print(message);
       return;
     });
+    fbm.subscribeToTopic('chat');
+    // save deviceId userA and userB and when userA text to userB you send notification to userB
     super.initState();
   }
 
